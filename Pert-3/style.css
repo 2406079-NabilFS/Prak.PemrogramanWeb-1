@@ -224,3 +224,107 @@ hr {
     padding: 20px;
   }
 }
+/* ===== Modul 4: Dashboard Project ===== */
+main > section + section {
+  margin-top: 20px;
+}
+
+input[type="number"],
+input[type="search"] {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+input[type="number"]:focus,
+input[type="search"]:focus {
+  outline: none;
+  border-color: #0d6efd;
+}
+
+.label-cek {
+  cursor: pointer;
+}
+
+.pesan-error {
+  color: #e74c3c;
+  font-size: 14px;
+  min-height: 1em;
+}
+
+/* Kartu statistik */
+.statistik {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 1px solid #070707;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.stat-angka {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Kartu proyek */
+.daftar-proyek {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.kartu {
+  padding: 15px;
+  border: 1px solid #070707;
+  border-left-width: 4px;
+  border-left-color: #f39c12;
+  border-radius: 4px;
+}
+
+.kartu:last-child {
+  border-bottom: 1px solid #070707;
+}
+
+.kartu-selesai {
+  border-left-color: #27ae60;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.badge-selesai { background-color: #27ae60; }
+.badge-proses { background-color: #f39c12; }
+
+.aksi {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btn-hapus {
+  background-color: #e74c3c;
+}
+
+.kosong {
+  margin-top: 15px;
+}

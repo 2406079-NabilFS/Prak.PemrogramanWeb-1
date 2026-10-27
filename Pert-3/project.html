@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modul 2 - Project</title>
+    <title>Modul 4 - Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,53 +13,75 @@
             <ul>
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="resume.html">Resume</a></li>
-                <li><a href="project.html">Project</a></li>
+                <li><a href="project.html">Project</a></li>               
                 <li><a href="kontak.html">Hubungi Saya</a></li>
             </ul>
         </nav>
     </header>
     <hr>
     <main>
-        <section id="proyek">
-            <h2>Proyek Unggulan</h2>
-            <article>
-                <header>
-                    <h3>1. Sistem Manajemen Inventori Database</h3>
-                    <p>Teknologi: HTML, CSS, JavaScript, MySQL | Tahun: <time datetime="2026">2026</time></p>
-                </header>
-                <p>Aplikasi web berbasis lokal untuk mencatat dan mengelola sirkulasi barang secara efisien terintegrasi dengan database MySQL.</p>
-            </article>
-            <article>
-                <header>
-                    <h3>2. Aplikasi Kasir & Perhitungan Transaksi</h3>
-                    <p>Teknologi: JavaScript ES6+ | Tahun: <time datetime="2026">2026</time></p>
-                </header>
-                <p>Program logika pemrosesan transaksi belanja yang menghitung total bayar dan diskon berbasis Array of Objects.</p>
-            </article>
-            <article>
-                <header>
-                    <h3>3. Aplikasi Pencatatan Keuangan</h3>
-                    <p>Teknologi: JavaScript ES6+ | Tahun: <time datetime="2026">2026</time></p>
-                </header>
-                <p>Aplikasi berbasis web untuk mencatat dan mengelola keuangan pribadi, termasuk pemasukan, pengeluaran, dan laporan keuangan.</p>
-            </article>
-            <article>
-                <header>
-                    <h3>4. Aplikasi Pencatatan Data Mahasiswa</h3>
-                    <p>Teknologi: JavaScript ES6+ | Tahun: <time datetime="2026">2026</time></p>
-                </header>
-                <p>Aplikasi berbasis web untuk mencatat dan mengelola data mahasiswa, termasuk informasi pribadi, nilai, dan riwayat akademik.</p>
-            </article>
+        <!-- FITUR 1: Form input proyek -->
+        <section id="form-proyek">
+            <h2>Tambah Proyek Baru</h2>
+            <form id="form-tambah" novalidate>
+                <p>
+                    <label for="input-judul">Judul Proyek:</label><br>
+                    <input type="text" id="input-judul" name="judul">
+                </p>
+                <p>
+                    <label for="input-kategori">Kategori:</label><br>
+                    <select id="input-kategori" name="kategori">
+                        <option value="Web App">Web App</option>
+                        <option value="Mobile App">Mobile App</option>
+                        <option value="Desktop App">Desktop App</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="input-anggaran">Estimasi Anggaran (Rp):</label><br>
+                    <input type="number" id="input-anggaran" name="anggaran" min="0" step="1000">
+                </p>
+                <p>
+                    <label class="label-cek">
+                        <input type="checkbox" id="input-selesai" name="selesai">
+                        Sudah Selesai
+                    </label>
+                </p>
+                <p id="pesan-error" class="pesan-error" role="alert"></p>
+                <p>
+                    <button type="submit">Tambah Proyek</button>
+                </p>
+            </form>
         </section>
-        <hr>
+
+        <!-- Kartu statistik -->
+        <section id="statistik">
+            <h2>Statistik</h2>
+            <div class="statistik">
+                <div class="stat"><span class="stat-angka" id="stat-total">0</span><span class="stat-label">Total Proyek</span></div>
+                <div class="stat"><span class="stat-angka" id="stat-selesai">0</span><span class="stat-label">Selesai</span></div>
+                <div class="stat"><span class="stat-angka" id="stat-proses">0</span><span class="stat-label">Dalam Pengerjaan</span></div>
+                <div class="stat"><span class="stat-angka" id="stat-anggaran">Rp0</span><span class="stat-label">Total Anggaran</span></div>
+            </div>
+        </section>
+
+        <!-- FITUR 2: Live search + daftar proyek -->
+        <section id="proyek">
+            <h2>Daftar Proyek</h2>
+            <label for="input-cari">Cari proyek:</label><br>
+            <input type="search" id="input-cari" placeholder="Ketik nama proyek...">
+            <div id="daftar-proyek" class="daftar-proyek"></div>
+        </section>
     </main>
     <aside>
         <h3>Info Tambahan</h3>
         <p>Seluruh project diatas dikembangkan sebagai dari pembelajaran dan portofolio pribadi.</p>
     </aside>
     <hr>
-    <footer>    
+    <footer>
         <p>&copy; 2026 Portofolio Mahasiswa - All Rights Reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
