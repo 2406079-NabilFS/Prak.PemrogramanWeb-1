@@ -148,12 +148,150 @@
       background: #fef9c3;
       color: #854d0e;
     }
+
+    .form-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 25px;
+    }
+
+    .form-box h2 {
+      font-size: 16px;
+      color: #1e3a8a;
+      margin-bottom: 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+
+    .field input[type="text"],
+    .field input[type="number"],
+    .field select,
+    .search-input {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 14px;
+      background: #ffffff;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .search-input:focus,
+    button:focus-visible {
+      outline: 2px solid #1e3a8a;
+      outline-offset: 1px;
+    }
+
+    .field-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .form-error {
+      color: #b91c1c;
+      font-size: 13px;
+      margin-bottom: 10px;
+      min-height: 18px;
+    }
+
+    .btn-primary {
+      padding: 9px 18px;
+      background: #1e3a8a;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: #1e40af; }
+
+    .search-input { margin-bottom: 12px; }
+
+    .project-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .actions { display: flex; gap: 6px; }
+
+    .btn-action {
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+    }
+
+    .btn-action:hover { background: #f1f5f9; }
+
+    .btn-delete { color: #b91c1c; border-color: #fecaca; }
+    .btn-delete:hover { background: #fee2e2; }
+
+    @media (max-width: 520px) {
+      .project-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .project-right { align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Portofolio Proyek</h1>
-    <p class="subtitle">Modul 4: Pengolahan Logika Data & Interaktivitas DOM</p>
+    <p class="subtitle">Pengolahan Logika Data &amp; Interaktivitas DOM</p>
+
+    <!-- Fitur 1: Form Input Proyek -->
+    <form id="project-form" class="form-box" novalidate>
+      <h2>Tambah Proyek Baru</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="input-title">Judul Proyek</label>
+          <input type="text" id="input-title" placeholder="Contoh: Aplikasi Kasir">
+        </div>
+        <div class="field">
+          <label for="input-category">Kategori</label>
+          <select id="input-category">
+            <option value="Web App">Web App</option>
+            <option value="Mobile App">Mobile App</option>
+            <option value="Desktop App">Desktop App</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="input-budget">Estimasi Anggaran (Rp)</label>
+          <input type="number" id="input-budget" min="0" placeholder="Contoh: 2500000">
+        </div>
+      </div>
+      <label class="field-check">
+        <input type="checkbox" id="input-completed"> Sudah selesai
+      </label>
+      <p class="form-error" id="form-error" role="alert"></p>
+      <button type="submit" class="btn-primary">Simpan Proyek</button>
+    </form>
 
     <!-- Kartu Ringkasan Statistik -->
     <div class="stats-grid">
@@ -177,7 +315,11 @@
       <button class="btn-filter" data-category="Web App">Web App</button>
       <button class="btn-filter" data-category="Desktop App">Desktop App</button>
       <button class="btn-filter" data-category="Mobile App">Mobile App</button>
+      <button class="btn-filter" data-category="UI/UX Design">UI/UX Design</button>
     </div>
+
+    <!-- Fitur 2: Pencarian Real-Time -->
+    <input type="search" id="search-input" class="search-input" placeholder="Cari nama proyek..." aria-label="Cari nama proyek">
 
     <!-- Kontainer Daftar Proyek -->
     <div id="project-list"></div>

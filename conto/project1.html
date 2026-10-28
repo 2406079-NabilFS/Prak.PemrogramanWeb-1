@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 4 - Project Interaktif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Project Interaktif</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="project1.html">project1</a></li>
+                <li><a href="kontak.html">Hubungi Saya</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <!-- Fitur 1: Form input proyek -->
+        <section id="tambah">
+            <h2>Tambah Proyek Baru</h2>
+            <form id="project-form" novalidate>
+                <p>
+                    <label for="input-title">Judul Proyek:</label><br>
+                    <input type="text" id="input-title" name="title">
+                </p>
+                <p>
+                    <label for="input-category">Kategori:</label><br>
+                    <select id="input-category" name="category">
+                        <option value="Web App">Web App</option>
+                        <option value="Mobile App">Mobile App</option>
+                        <option value="Desktop App">Desktop App</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="input-budget">Estimasi Anggaran (Rp):</label><br>
+                    <input type="number" id="input-budget" name="budget" min="0">
+                </p>
+                <div class="check-row">
+                    <input type="checkbox" id="input-completed" name="completed">
+                    <label for="input-completed">Sudah Selesai</label>
+                </div>
+                <p class="form-error" id="form-error" role="alert"></p>
+                <p>
+                    <button type="submit">Simpan Proyek</button>
+                    <button type="reset">Reset / batal</button>
+                </p>
+            </form>
+        </section>
+        <hr>
+        <section id="daftar">
+            <h2>Daftar Proyek</h2>
+            <div class="stats">
+                <div class="stat"><h3>Total Proyek</h3><p id="stat-total">0</p></div>
+                <div class="stat"><h3>Total Anggaran</h3><p id="stat-budget">Rp 0</p></div>
+                <div class="stat"><h3>Selesai</h3><p id="stat-done">0</p></div>
+            </div>
+
+            <!-- Fitur 2: Pencarian real-time + filter kategori -->
+            <div class="toolbar">
+                <input type="search" id="search-input" placeholder="Cari nama proyek..." aria-label="Cari nama proyek">
+                <select id="filter-category" aria-label="Filter kategori">
+                    <option value="Semua">Semua kategori</option>
+                    <option value="Web App">Web App</option>
+                    <option value="Mobile App">Mobile App</option>
+                    <option value="Desktop App">Desktop App</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                </select>
+            </div>
+
+            <!-- Fitur 3: kartu dengan tombol aksi dirender oleh project1.js -->
+            <div id="project-list"></div>
+        </section>
+        <hr>
+    </main>
+    <aside>
+        <h3>Info Tambahan</h3>
+        <p>Data proyek disimpan di memori browser, jadi akan kembali ke data awal saat halaman dimuat ulang.</p>
+    </aside>
+    <hr>
+    <footer>
+        <p>&copy; 2026 Portofolio Mahasiswa - All Rights Reserved.</p>
+    </footer>
+    <script src="project1.js"></script>
+</body>
+</html>

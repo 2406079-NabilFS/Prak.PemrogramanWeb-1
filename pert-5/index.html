@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi To-Do List - Modul 5</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="todo-app">
+        <h2>Daftar Tugas Saya</h2>
+        <!-- Fitur 1: Penghitung Tugas -->
+        <p class="task-counter" id="taskCounter" aria-live="polite"></p>
+        <!-- Form Input Tugas -->
+        <form id="todoForm" novalidate>
+            <div class="input-section">
+                <label for="taskInput" class="sr-only">Tugas Baru</label>
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Ketikkan tugas baru Anda..."
+                    autocomplete="off"
+                >
+                <button type="submit" class="add-btn">Tambah</button>
+            </div>
+            <div class="error-message" id="inputError" role="alert">
+                Tugas tidak boleh kosong atau kurang dari 3 karakter!
+            </div>
+        </form>
+        <ul class="todo-list" id="todoList"></ul>
+        <!-- Fitur 2: Bersihkan Tugas Selesai -->
+        <button type="button" id="clearCompletedBtn" class="clear-btn">Bersihkan Tugas Selesai</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
