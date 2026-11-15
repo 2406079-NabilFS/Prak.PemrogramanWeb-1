@@ -1,0 +1,300 @@
+/* File: public/style.css */
+
+/* ============================================================
+   1. CSS VARIABLES (tema terpusat)
+   ============================================================ */
+:root {
+  --color-primary:        #1e3a8a;
+  --color-primary-hover:  #1e40af;
+  --color-secondary:      #64748b;
+  --color-danger:         #dc2626;
+  --color-info:           #0284c7;
+  --color-bg:             #f1f5f9;
+  --color-surface:        #ffffff;
+  --color-text:           #0f172a;
+  --color-text-muted:     #64748b;
+  --color-border:         #cbd5e1;
+  --color-border-light:   #e2e8f0;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 30px 15px;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: var(--color-primary);
+  margin-bottom: 4px;
+  font-size: 22px;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 13.5px;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   3. CARD (form & tabel)
+   ============================================================ */
+.form-card,
+.table-card {
+  background: var(--color-surface);
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border-light);
+}
+
+/* Tabel bisa di-scroll horizontal di layar kecil */
+.table-card {
+  overflow-x: auto;
+}
+
+.form-card h3 {
+  color: var(--color-primary);
+  font-size: 16px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--color-border-light);
+  padding-bottom: 8px;
+}
+
+/* ============================================================
+   4. FORM
+   ============================================================ */
+.form-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #334155;
+}
+
+.req {
+  color: var(--color-danger);
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background: #fff;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+}
+
+/* State invalid (opsional, jika JS menambahkan class .is-invalid) */
+input.is-invalid,
+select.is-invalid {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ============================================================
+   5. BUTTONS
+   ============================================================ */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s, transform 0.05s;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: #475569;
+}
+
+/* Tombol aksi di tabel */
+.btn-action {
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: filter 0.15s;
+}
+.btn-action:hover {
+  filter: brightness(1.1);
+}
+
+.btn-edit {
+  background-color: var(--color-info);
+  color: #fff;
+  margin-right: 4px;
+}
+
+.btn-delete {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+/* ============================================================
+   6. TABLE
+   ============================================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* cegah kolom terlalu sempit saat di-scroll */
+}
+
+th,
+td {
+  padding: 11px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: 13.5px;
+}
+
+th {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Hanya baris data yang highlight, bukan header */
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* ============================================================
+   7. ALERT (notifikasi)
+   ============================================================ */
+.alert {
+  display: none; /* default tersembunyi; JS akan menampilkan */
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.alert-success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ============================================================
+   8. AKSESIBILITAS
+   ============================================================ */
+/* Hanya tampilkan outline untuk navigasi keyboard, bukan klik mouse */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   9. RESPONSIF
+   ============================================================ */
+@media (max-width: 640px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-card,
+  .table-card {
+    padding: 16px;
+  }
+
+  .form-actions {
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    flex: 1;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aplikasi CRUD Data Mahasiswa dengan Node.js, Express, Fetch API, dan MySQL Laragon." />
+  <meta name="theme-color" content="#1e3a8a" />
+  <title>CRUD Mahasiswa - JavaScript &amp; Laragon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Manajemen Data Mahasiswa</h2>
+    <p class="subtitle">
+      Sistem CRUD 100% JavaScript: Node.js, Express, Fetch API &amp; MySQL Laragon
+    </p>
+
+    <!-- Pesan Notifikasi Alert -->
+    <div
+      id="alertMessage"
+      class="alert"
+      role="alert"
+      aria-live="polite"
+      style="display: none;"
+    ></div>
+
+    <!-- Formulir Tambah / Edit Mahasiswa -->
+    <section class="form-card" aria-labelledby="formTitle">
+      <h3 id="formTitle">Tambah Mahasiswa Baru</h3>
+
+      <form id="mhsForm" autocomplete="off">
+        <input type="hidden" id="mhsId" name="id" />
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="nim">NIM <span class="req" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="nim"
+              name="nim"
+              required
+              maxlength="20"
+              placeholder="Contoh: 240101003"
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group flex-1">
+            <label for="nama">Nama Lengkap <span class="req" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              required
+              maxlength="100"
+              placeholder="Nama mahasiswa"
+              autocomplete="name"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="jurusan">Program Studi <span class="req" aria-hidden="true">*</span></label>
+            <select id="jurusan" name="jurusan" required>
+              <option value="">-- Pilih Jurusan --</option>
+              <option value="Teknik Informatika">Teknik Informatika</option>
+              <option value="Sistem Informasi">Sistem Informasi</option>
+              <option value="Manajemen Informatika">Manajemen Informatika</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              maxlength="100"
+              placeholder="nama@kampus.ac.id"
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="btnSubmit" class="btn btn-primary">
+            Simpan Mahasiswa
+          </button>
+          <button
+            type="button"
+            id="btnCancel"
+            class="btn btn-secondary"
+            style="display: none;"
+          >
+            Batal Edit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Tabel Data Mahasiswa -->
+    <section class="table-card" aria-labelledby="tableTitle">
+      <h3 id="tableTitle" class="sr-only">Daftar Mahasiswa</h3>
+
+      <table>
+        <caption class="sr-only">Daftar data mahasiswa yang tersimpan</caption>
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">NIM</th>
+            <th scope="col">Nama Lengkap</th>
+            <th scope="col">Jurusan</th>
+            <th scope="col">Email</th>
+            <th scope="col">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="mhsTableBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
